@@ -1,8 +1,5 @@
 ﻿using Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -12,6 +9,7 @@ namespace Data
     {
         DbSet<Product> Products { get; set; }
         DbSet<Person> People { get; set; }
+        DbSet<OrderLine> Orders { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
@@ -20,6 +18,7 @@ namespace Data
     {
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<Person> People { get; set; }
+        public virtual DbSet<OrderLine> Orders { get; set; }
 
         public MyContext(DbContextOptions<MyContext> options) : base(options)
         {
